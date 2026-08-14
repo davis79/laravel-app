@@ -19,7 +19,6 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install \
     bcmath \
     intl \
-    opcache \
     pcntl \
     pdo_mysql \
     zip \

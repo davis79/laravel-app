@@ -1,0 +1,1 @@
+<x-admin-shell title="Edytuj użytkownika" description="Zmień dane konta lub poziom jego dostępu."><form method="POST" action="{{ route('admin.users.update', $user) }}" class="rounded-2xl border border-white/[0.06] bg-[#0d1024] p-5 sm:p-7">@csrf @method('PUT') @include('admin.users._form')</form></x-admin-shell>

@@ -1,24 +1,15 @@
 <?php
-
 namespace App\Providers;
-
+use App\Models\FruitProduct;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
-    public function register(): void
-    {
-        //
-    }
-
-    /**
-     * Bootstrap any application services.
-     */
-    public function boot(): void
-    {
-        //
-    }
+ public function register(): void {}
+ public function boot(): void
+ {
+  View::composer(['dashboard','components.warehouse-shell'],function($view){
+   $view->with('warehouseTreeProducts',FruitProduct::query()->with(['flavors'=>fn($query)=>$query->orderBy('name')])->orderBy('name')->get());
+  });
+ }
 }

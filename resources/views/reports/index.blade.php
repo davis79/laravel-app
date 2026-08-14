@@ -1,0 +1,1 @@
+<x-layouts.app title="Raporty"><main class="grid min-h-screen place-items-center bg-slate-950 p-6 text-white"><div class="text-center"><p class="text-cyan-400">Administrator i menedżer</p><h1 class="mt-2 text-3xl font-bold">Raporty</h1><a href="{{ route('dashboard') }}" class="mt-6 inline-block rounded-xl bg-indigo-500 px-5 py-3">Wróć do pulpitu</a></div></main></x-layouts.app>

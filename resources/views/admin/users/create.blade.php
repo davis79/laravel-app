@@ -1,0 +1,1 @@
+<x-admin-shell title="Nowy użytkownik" description="Utwórz konto i nadaj mu odpowiednie uprawnienia."><form method="POST" action="{{ route('admin.users.store') }}" class="rounded-2xl border border-white/[0.06] bg-[#0d1024] p-5 sm:p-7">@csrf @include('admin.users._form')</form></x-admin-shell>
