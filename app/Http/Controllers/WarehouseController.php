@@ -45,7 +45,8 @@ class WarehouseController extends Controller
  public function showContainer(FruitContainer $container): View { $container->load(['flavor.product','usages.recorder'])->loadSum('usages','quantity_kg'); return view('warehouse.container',compact('container')); }
  public function storeUsage(Request $request,FruitContainer $container): RedirectResponse
  {
-  $v=$request->validate(['production_name'=>['required','max:255'],'production_number'=>['nullable','max:255'],'quantity_kg'=>['required','numeric','gt:0','decimal:0,3'],'used_at'=>['required','date'],'notes'=>['nullable','max:2000']]);
+  $v=$request->validate(['production_number'=>['required','max:255'],'quantity_kg'=>['required','numeric','gt:0','decimal:0,3'],'used_at'=>['required','date'],'notes'=>['nullable','max:2000']]);
+  $v['production_name']=$v['production_number'];
   DB::transaction(function()use($v,$container,$request){$locked=FruitContainer::query()->lockForUpdate()->findOrFail($container->id);$used=(float)$locked->usages()->sum('quantity_kg');if($used >= (float)$locked->weight_kg)throw ValidationException::withMessages(['quantity_kg'=>'Kontener jest nieaktywny — cała jego zawartość została zużyta.']);if($used+(float)$v['quantity_kg']>(float)$locked->weight_kg)throw ValidationException::withMessages(['quantity_kg'=>'Ilość przekracza pozostałą wagę kontenera.']);$locked->usages()->create($v+['recorded_by'=>$request->user()->id]);});
   return back()->with('status','Zużycie zostało zapisane.');
  }

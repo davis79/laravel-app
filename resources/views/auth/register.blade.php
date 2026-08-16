@@ -1,10 +1,10 @@
-<x-layouts.app title="Rejestracja — {{ config('app.name') }}">
+<x-layouts.app title="Rejestracja — Production Manager">
 <main class="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-12">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(99,102,241,0.23),_transparent_35%),radial-gradient(circle_at_bottom_left,_rgba(34,211,238,0.13),_transparent_34%)]"></div>
     <section class="relative w-full max-w-md rounded-3xl border border-white/10 bg-white/[0.07] p-8 shadow-2xl shadow-black/30 backdrop-blur-xl sm:p-10">
         <a href="{{ url('/') }}" class="mb-8 inline-flex items-center gap-3 text-sm font-semibold tracking-wide text-white">
-            <span class="grid size-10 place-items-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 shadow-lg shadow-indigo-500/25"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v10l8 4 8-4V7l-8-4Z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg></span>
-            {{ config('app.name', 'Laravel') }}
+            <img src="{{ asset('images/danone-logo.png') }}" alt="Danone" class="size-12 shrink-0 object-contain">
+            <span>Production Manager</span>
         </a>
         <header class="mb-7"><p class="mb-2 text-sm font-medium text-indigo-400">Utwórz konto</p><h1 class="text-3xl font-bold tracking-tight text-white">Dołącz do nas</h1><p class="mt-3 text-sm leading-6 text-slate-400">Wypełnij formularz, aby otrzymać dostęp użytkownika.</p></header>
         <form method="POST" action="{{ route('register.store') }}" class="space-y-4">
