@@ -1,0 +1,8 @@
+promana.pl {
+    redir https://www.promana.pl{uri} permanent
+}
+
+www.promana.pl {
+    encode zstd gzip
+    reverse_proxy web:80
+}

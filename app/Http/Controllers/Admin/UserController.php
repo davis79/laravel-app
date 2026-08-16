@@ -16,24 +16,12 @@ class UserController extends Controller
     public function index(Request $request): View
     {
         $search = trim($request->string('search')->toString());
-
-        $users = User::query()
-            ->when($search, fn ($query) => $query->where(function ($query) use ($search) {
-                $query->where('name', 'like', "%{$search}%")
-                    ->orWhere('email', 'like', "%{$search}%");
-            }))
-            ->latest()
-            ->paginate(10)
-            ->withQueryString();
-
+        $users = User::query()->when($search, fn ($query) => $query->where(function ($query) use ($search) {
+            $query->where('name', 'like', "%{$search}%")->orWhere('email', 'like', "%{$search}%");
+        }))->latest()->paginate(10)->withQueryString();
         return view('admin.users.index', compact('users', 'search'));
     }
-
-    public function create(): View
-    {
-        return view('admin.users.create', ['roles' => UserRole::cases()]);
-    }
-
+    public function create(): View { return view('admin.users.create', ['roles' => UserRole::cases()]); }
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
@@ -42,17 +30,10 @@ class UserController extends Controller
             'role' => ['required', Rule::enum(UserRole::class)],
             'password' => ['required', 'confirmed', Password::min(8)],
         ]);
-
-        User::create($validated);
-
+        User::create($validated + ['must_change_password' => true, 'password_changed_at' => null]);
         return redirect()->route('admin.users.index')->with('status', 'Użytkownik został dodany.');
     }
-
-    public function edit(User $user): View
-    {
-        return view('admin.users.edit', compact('user') + ['roles' => UserRole::cases()]);
-    }
-
+    public function edit(User $user): View { return view('admin.users.edit', compact('user') + ['roles' => UserRole::cases()]); }
     public function update(Request $request, User $user): RedirectResponse
     {
         $validated = $request->validate([
@@ -61,17 +42,14 @@ class UserController extends Controller
             'role' => ['required', Rule::enum(UserRole::class)],
             'password' => ['nullable', 'confirmed', Password::min(8)],
         ]);
-
-        if ($request->user()->is($user)) {
-            $validated['role'] = UserRole::Admin->value;
-        }
-
+        if ($request->user()->is($user)) { $validated['role'] = UserRole::Admin->value; }
         if (blank($validated['password'] ?? null)) {
             unset($validated['password']);
+        } else {
+            $validated['must_change_password'] = true;
+            $validated['password_changed_at'] = null;
         }
-
         $user->update($validated);
-
         return redirect()->route('admin.users.index')->with('status', 'Dane użytkownika zostały zapisane.');
     }
 }

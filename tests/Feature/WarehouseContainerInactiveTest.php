@@ -25,7 +25,7 @@ class WarehouseContainerInactiveTest extends TestCase
         ]);
 
         $payload = [
-            'production_name' => 'Produkcja A',
+            'production_number' => 'PROD-A',
             'quantity_kg' => 100,
             'used_at' => '2026-08-12 12:00:00',
         ];

@@ -77,3 +77,218 @@ html.light [data-theme-menu] {
 html.light img[alt="Danone"] {
     filter: none;
 }
+
+
+/* AdminDeck-inspired application theme */
+@theme {
+    --color-indigo-300: #9fbcff;
+    --color-indigo-400: #79a2ff;
+    --color-indigo-500: #5688f5;
+    --color-indigo-600: #3f72df;
+    --color-violet-400: #79a2ff;
+    --color-violet-500: #5688f5;
+    --color-cyan-400: #27b8ee;
+    --color-cyan-500: #0da9e5;
+    --color-emerald-300: #64d5b2;
+    --color-emerald-400: #3fc49b;
+    --color-emerald-500: #2fac87;
+    --color-amber-300: #ffc65a;
+    --color-amber-400: #f4a516;
+    --color-amber-500: #ed8b00;
+}
+
+html:not(.light) body {
+    background: #202124;
+    color: #c5cfdf;
+}
+
+html:not(.light) [class*="bg-[#060818]"],
+html:not(.light) [class*="bg-[#090c1d]"] {
+    background-color: #202124 !important;
+}
+
+html:not(.light) [class*="bg-[#0d1024]"] {
+    background-color: #292a2d !important;
+}
+
+html:not(.light) [class*="bg-[#080b1b]"] {
+    background-color: #1d1f22 !important;
+}
+
+html:not(.light) aside {
+    background-color: #18191b !important;
+    border-color: #303236 !important;
+}
+
+html:not(.light) header {
+    background-color: rgba(32, 33, 36, 0.96) !important;
+    border-color: #303236 !important;
+}
+
+html:not(.light) [class*="border-white/"] {
+    border-color: #383a3f !important;
+}
+
+html:not(.light) [class*="bg-white/"] {
+    background-color: rgba(255, 255, 255, 0.045) !important;
+}
+
+html:not(.light) input,
+html:not(.light) select,
+html:not(.light) textarea {
+    background-color: #1d1f22 !important;
+    border: 1px solid #383a3f;
+    color: #eef2f8;
+}
+
+html:not(.light) input:focus,
+html:not(.light) select:focus,
+html:not(.light) textarea:focus {
+    border-color: #5688f5;
+    box-shadow: 0 0 0 3px rgba(86, 136, 245, 0.14);
+}
+
+html:not(.light) .text-white,
+html:not(.light) .text-slate-100,
+html:not(.light) .text-slate-200 {
+    color: #f2f4f8 !important;
+}
+
+html:not(.light) .text-slate-300 {
+    color: #c5cfdf !important;
+}
+
+html:not(.light) .text-slate-400 {
+    color: #aab7cb !important;
+}
+
+html:not(.light) .text-slate-500 {
+    color: #8491a3 !important;
+}
+
+html:not(.light) .text-slate-600,
+html:not(.light) .text-slate-700 {
+    color: #6f7b89 !important;
+}
+
+html:not(.light) aside nav a {
+    border-radius: 6px;
+}
+
+html:not(.light) aside nav a[class*="bg-indigo"] {
+    border-left: 3px solid #5688f5;
+    border-radius: 0 6px 6px 0;
+    background-color: rgba(86, 136, 245, 0.12) !important;
+    box-shadow: none;
+}
+
+html:not(.light) [data-theme-menu] {
+    background-color: #292a2d !important;
+    border-color: #3b3d42 !important;
+}
+
+.rounded-3xl {
+    border-radius: 12px !important;
+}
+
+.rounded-2xl {
+    border-radius: 8px !important;
+}
+
+.rounded-xl {
+    border-radius: 6px !important;
+}
+
+.rounded-lg {
+    border-radius: 5px !important;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+    transition-duration: 160ms;
+}
+
+.shadow-lg,
+.shadow-xl,
+.shadow-2xl {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16) !important;
+}
+
+.dashboard-stat {
+    border: 0 !important;
+    color: white;
+    min-height: 154px;
+}
+
+.dashboard-stat:nth-child(1) {
+    background: #5688f5 !important;
+}
+
+.dashboard-stat:nth-child(2) {
+    background: #2fac87 !important;
+}
+
+.dashboard-stat:nth-child(3) {
+    background: #ed8b00 !important;
+}
+
+.dashboard-stat:nth-child(4) {
+    background: #0da9e5 !important;
+}
+
+.dashboard-stat .text-white,
+.dashboard-stat .text-slate-500,
+.dashboard-stat [class*="text-"] {
+    color: white !important;
+}
+
+.dashboard-stat [class*="bg-"] {
+    background-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+html.light body {
+    background-color: #f2f4f7;
+    color: #344054;
+}
+
+html.light [class*="bg-[#060818]"],
+html.light [class*="bg-[#080b1b]"],
+html.light [class*="bg-[#090c1d]"] {
+    background-color: #f2f4f7 !important;
+}
+
+html.light [class*="bg-[#0d1024]"] {
+    background-color: #ffffff !important;
+}
+
+html.light aside {
+    background-color: #ffffff !important;
+    border-color: #dfe3e8 !important;
+}
+
+html.light header {
+    background-color: rgba(255, 255, 255, 0.94) !important;
+    border-color: #dfe3e8 !important;
+}
+
+html.light aside nav a[class*="bg-indigo"] {
+    border-left: 3px solid #5688f5;
+    border-radius: 0 6px 6px 0;
+    background-color: rgba(86, 136, 245, 0.1) !important;
+}
+
+html.light input,
+html.light select,
+html.light textarea {
+    background-color: #ffffff !important;
+    border: 1px solid #d7dce2;
+}
+
+html.light .dashboard-stat .text-white,
+html.light .dashboard-stat .text-slate-500,
+html.light .dashboard-stat [class*="text-"] {
+    color: white !important;
+}

@@ -19,11 +19,7 @@
         <div class="lg:pl-64">
             <header class="flex h-20 items-center justify-between border-b border-white/[0.06] bg-[#090c1d] px-4 sm:px-8">
                 <a href="{{ route('dashboard') }}" class="text-sm text-slate-400 lg:hidden">← Pulpit</a>
-                <div class="ml-auto flex items-center gap-3">
-                    @include('components.theme-switcher')
-                    <div class="grid size-9 place-items-center rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-500 font-bold text-slate-950">{{ strtoupper(substr(auth()->user()->name, 0, 1)) }}</div>
-                    <div class="hidden sm:block"><p class="text-sm font-semibold text-white">{{ auth()->user()->name }}</p><p class="text-[10px] text-indigo-400">Administrator</p></div>
-                </div>
+                <div class="ml-auto">@include('components.user-toolbar')</div>
             </header>
             <main class="p-4 sm:p-8">
                 <div class="mx-auto max-w-7xl">

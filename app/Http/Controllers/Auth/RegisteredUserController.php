@@ -14,11 +14,7 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
-    public function create(): View
-    {
-        return view('auth.register');
-    }
-
+    public function create(): View { return view('auth.register'); }
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
@@ -26,18 +22,13 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Password::min(8)],
         ]);
-
         $user = User::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'password' => $validated['password'],
-            'role' => UserRole::User,
+            'name' => $validated['name'], 'email' => $validated['email'], 'password' => $validated['password'],
+            'role' => UserRole::User, 'password_changed_at' => now(), 'must_change_password' => false,
         ]);
-
         event(new Registered($user));
         Auth::login($user);
         $request->session()->regenerate();
-
         return redirect()->route('dashboard');
     }
 }
