@@ -9,7 +9,7 @@ use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
 Route::middleware('guest')->group(function () {
  Route::get('/', [AuthenticatedSessionController::class,'create'])->name('login');
- Route::redirect('/logowanie','/');
+ Route::get('/logowanie', [AuthenticatedSessionController::class,'create']);
  Route::post('/logowanie',[AuthenticatedSessionController::class,'store'])->name('login.store');
  Route::get('/rejestracja',[RegisteredUserController::class,'create'])->name('register');
  Route::post('/rejestracja',[RegisteredUserController::class,'store'])->name('register.store');
