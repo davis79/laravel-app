@@ -106,7 +106,7 @@
                         @endforeach
                     </div>
                 </section>
-                <footer class="mt-8 flex flex-col justify-between gap-2 border-t border-white/[0.05] py-6 text-xs text-slate-600 sm:flex-row"><p>© {{ date('Y') }} {{ config('app.name', 'Nexus') }}. Wszystkie prawa zastrzeżone.</p><p>Panel administracyjny v1.0</p></footer>
+                <footer class="mt-8 flex flex-col justify-between gap-2 border-t border-white/[0.05] py-6 text-xs text-slate-600 sm:flex-row"><p>© {{ date('Y') }} Danone - Production Manager. Wszystkie prawa zastrzeżone.</p><p>Panel administracyjny v1.0</p></footer>
             </div>
         </main>
     </div>
